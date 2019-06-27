@@ -20,7 +20,7 @@
             android:layout_width="128dp"
             android:layout_height="128dp"
             android:layout_marginBottom="16dp"
-            android:src="@drawable/danho" />
+            android:src="@drawable/splash_image" />
 
         <Button
             android:id="@+id/bt_login"
