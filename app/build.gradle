@@ -26,7 +26,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    compile 'com.googlecode.json-simple:json-simple:1.1'
+    implementation 'com.googlecode.json-simple:json-simple:1.1'
 
     //카카오톡 로그인 sdk
     implementation group: 'com.kakao.sdk', name: 'usermgmt', version: project.KAKAO_SDK_VERSION
