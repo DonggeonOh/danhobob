@@ -123,6 +123,7 @@ public class RatingActivity extends AppCompatActivity {
 
                 for(int i = 0; i < VIEW_NUM; i++) {
                     numStar[i] = ratingBars[i].getRating();
+                    Database.UpdatePreference(i,(int)numStar[i]);
                 }
 
                 Intent intent = new Intent(v.getContext(), SelectActivity.class);
