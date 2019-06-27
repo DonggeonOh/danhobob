@@ -3,12 +3,13 @@ package com.dankook.danhobob;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.R;
 
 public class SplashActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
+        setContentView(com.dankook.danhobob.R.layout.activity_splash);
         startSplash();
     }
 
