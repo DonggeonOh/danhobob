@@ -14,16 +14,16 @@ public class RatingActivity extends AppCompatActivity {
 
     private static final int VIEW_NUM = 9;
 
-    RelativeLayout[] relativeLayouts = new RelativeLayout[VIEW_NUM + 1];
-    LinearLayout linearLayout;
+    private RelativeLayout[] relativeLayouts = new RelativeLayout[VIEW_NUM + 1];
+    private LinearLayout linearLayout;
 
-    ImageView[] foodImgs = new ImageView[VIEW_NUM];
-    TextView[] foodTxts = new TextView[VIEW_NUM];
-    RatingBar[] ratingBars = new RatingBar[VIEW_NUM];
+    private ImageView[] foodImgs = new ImageView[VIEW_NUM];
+    private TextView[] foodTxts = new TextView[VIEW_NUM];
+    private RatingBar[] ratingBars = new RatingBar[VIEW_NUM];
 
-    Button submitButton;
+    private Button submitButton;
 
-    String[] foodNames = {"떡볶이", "햄버거", "피자", "막국수", "냉모밀", "국밥", "찜닭", "짜장면", "짬뽕"};
+    private String[] foodNames = {"떡볶이", "햄버거", "피자", "막국수", "냉모밀", "국밥", "찜닭", "짜장면", "짬뽕"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,8 +64,6 @@ public class RatingActivity extends AppCompatActivity {
             foodTxts[i] = new TextView(this);
             ratingBars[i] = new RatingBar(this);
 
-            foodTxts[i].setTextSize(20);
-
             foodImgs[i].setLayoutParams(imageParams);
             foodTxts[i].setLayoutParams(textParams);
             ratingBars[i].setLayoutParams(ratingParams);
@@ -74,8 +72,9 @@ public class RatingActivity extends AppCompatActivity {
             textParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
             ratingParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
 
-            foodImgs[i].setImageResource(R.drawable.food1);
+            foodTxts[i].setTextSize(20);
             foodTxts[i].setText(foodNames[i]);
+            ratingBars[i].setStepSize(1.0f);
         }
 
         foodImgs[0].setImageResource(R.drawable.food1);
