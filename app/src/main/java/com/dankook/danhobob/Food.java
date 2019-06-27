@@ -1,4 +1,5 @@
-package com.dankook.danhobob;
+package com.example.myapplication;
+
 import io.realm.*;
 
 public class Food extends RealmObject{
