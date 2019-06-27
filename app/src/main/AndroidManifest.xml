@@ -44,10 +44,6 @@
             android:name=".SoloActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
 
-        <activity
-            android:name=".FriendActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-
 
     </application>
 
