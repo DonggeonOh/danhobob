@@ -83,7 +83,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
         <Button
-            android:id="@+id/spicyFood"
+            android:id="@+id/s1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
@@ -200,7 +200,7 @@
             android:textColor="#000000" />
 
         <Button
-            android:id="@+id/JapaneseFood"
+            android:id="@+id/s2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
