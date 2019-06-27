@@ -3,18 +3,21 @@
     package="com.dankook.danhobob">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:name=".GlobalApplication"
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
         android:label="단호밥"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.NoActionBar"
-        android:hardwareAccelerated="false"
-        android:largeHeap="true">
-
+        android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".Recommend"></activity>
+        <activity android:name=".Solo" />
+        <activity android:name=".Home" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,11 +32,9 @@
         <activity
             android:name=".SplashActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-
         <activity
             android:name=".RatingActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-
     </application>
 
 </manifest>

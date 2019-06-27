@@ -10,6 +10,7 @@ import java.net.URL;
 
 //import org.json.simple.*;
 
+//import org.json.simple.*;
 
 public class WeatherByGPSApplication {
     public static void main(String[] args) {
@@ -67,3 +68,4 @@ public class WeatherByGPSApplication {
 
 
 }
+

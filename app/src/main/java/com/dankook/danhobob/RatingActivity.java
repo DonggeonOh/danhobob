@@ -1,7 +1,9 @@
 package com.dankook.danhobob;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -54,7 +56,14 @@ public class RatingActivity extends AppCompatActivity {
         submitButton.setLayoutParams(submitParams);
         submitButton.setTextSize(32);
         submitButton.setText("확인!");
+        submitButton.setOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), Home.class);
+                startActivity(intent);
+            }
+        });
         textParams.setMargins(270, 0, 0, 0);
 
         for (int i = 0; i < VIEW_NUM; i++) {
