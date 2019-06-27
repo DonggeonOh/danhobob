@@ -23,10 +23,10 @@ public class Database<let> {
 
         //com.example.myapplication.Food food = new com.example.myapplication.Food();
 
-        RealmResults<com.dankook.danhobob.FoodData> foods = mRealm.where(com.dankook.danhobob.FoodData.class).findAll();
+        RealmResults<FoodData5> foods = mRealm.where(FoodData5.class).findAll();
         Log.d("count", "" + foods.toArray().length);
 
-        com.dankook.danhobob.FoodData food = mRealm.where(com.dankook.danhobob.FoodData.class)
+        FoodData5 food = mRealm.where(FoodData5.class)
                 .equalTo("id", key)
                 .findFirst();
 
@@ -37,19 +37,11 @@ public class Database<let> {
             Log.d("null", "");
         }
         food.setPreference(newValue);
+
         mRealm.commitTransaction();
 
-        mRealm.executeTransaction(new Realm.Transaction() {
-            @Override
-            public void execute(Realm realm) {
-                com.dankook.danhobob.FoodData myfood = mRealm.where(com.dankook.danhobob.FoodData.class)
-                        .equalTo("id", key)
-                        .findFirst();
-                myfood.setPreference(newValue);
-            }
-        });
-
         food.getPreference();
+
         Log.d("새 값", ""+food.getPreference());
     }
 

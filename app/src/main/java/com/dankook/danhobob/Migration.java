@@ -12,8 +12,9 @@ public class Migration implements RealmMigration {
         RealmSchema schema = realm.getSchema();
 
         if (oldVersion == 0) {
-            RealmObjectSchema mFoodSchema = schema.create("FoodData");
-            mFoodSchema.addField("id", int.class, FieldAttribute.PRIMARY_KEY)
+            RealmObjectSchema mFoodSchema = schema.create("FoodData5");
+            mFoodSchema
+                    .addField("id", int.class, FieldAttribute.PRIMARY_KEY)
                     .addField("name", String.class, null)
                     .addField("preference", int.class, null)
                     .addField("category", String.class, null)
@@ -24,7 +25,7 @@ public class Migration implements RealmMigration {
                     .addField("temperature", String.class, null)
                     .addField("allergic", String.class, null)
                     .addField("ingredient", String.class, null)
-                    .addField("preference2", String.class, null);
+                    .addField("preference2", int.class, null);
             oldVersion ++;
         }
     }

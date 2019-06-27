@@ -2,7 +2,7 @@ package com.dankook.danhobob;
 
 import io.realm.*;
 
-public class FoodData extends RealmObject{
+public class FoodData5 extends RealmObject{
     private int id;
     private String name;
     private int preference;         //선호도
@@ -14,6 +14,7 @@ public class FoodData extends RealmObject{
     private String temperature;     //기온 적당, 추움, 더움 >> 추움일 때 추천, 더움일 때 추천
     private String allergic;        //알레르기 계란, 생선, 밀가루, 땅콩, 게, null
     private String ingredient;      //재료 해산물, 고기, 야채, 쌀, 닭, null
+    private int preference2;
 
     public int getPreference2() {
         return preference2;
@@ -22,8 +23,6 @@ public class FoodData extends RealmObject{
     public void setPreference2(int preference2) {
         this.preference2 = preference2;
     }
-
-    private int preference2;         //선호도
 
     public int getId() {
         return id;

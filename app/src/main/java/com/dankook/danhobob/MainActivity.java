@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         RealmConfiguration configuration = new RealmConfiguration.Builder()
                 .schemaVersion(0)
                 .modules(new MyRealmModule())
-                .migration(new Migration())
                 .build();
         Realm.setDefaultConfiguration(configuration);
         ImportData.Import();
