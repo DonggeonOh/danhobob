@@ -127,6 +127,7 @@ public class RatingActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(v.getContext(), SelectActivity.class);
                 intent.putExtra("rating", numStar);
+
                 startActivity(intent);
             }
 

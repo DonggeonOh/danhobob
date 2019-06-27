@@ -11,13 +11,15 @@ public class SelectActivity extends AppCompatActivity implements View.OnClickLis
     private Button soloBtn;
     private Button friendBtn;
 
+    private float[] fl;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select);
 
         Intent intent = getIntent();
-        float[] fl = intent.getExtras().getFloatArray("rating");
+        fl = intent.getExtras().getFloatArray("rating");
 
         soloBtn = findViewById(R.id.bt_solo);
         friendBtn = findViewById(R.id.bt_friend);
@@ -32,10 +34,12 @@ public class SelectActivity extends AppCompatActivity implements View.OnClickLis
         switch (v.getId()) {
             case R.id.bt_solo:
                 i = new Intent(this, SoloActivity.class);
+                i.putExtra("rating", fl);
                 startActivity(i);
                 break;
             case R.id.bt_friend:
                 i = new Intent(this, SoloActivity.class);
+                i.putExtra("rating", fl);
                 startActivity(i);
         }
     }
