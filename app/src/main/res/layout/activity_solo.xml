@@ -26,10 +26,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/oval"
             android:src="@drawable/food1"
-            app:civ_
             />
 
     </FrameLayout>
-
 
 </LinearLayout>
