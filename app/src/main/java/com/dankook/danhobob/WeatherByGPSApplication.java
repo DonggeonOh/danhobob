@@ -1,18 +1,14 @@
-package com.example.myapplication;
+package com.dankook.danhobob;
 
-import android.content.Context;
-import android.location.LocationManager;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.json.simple.parser.*;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
-import org.json.*;
-//import org.json.simple.*;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 
-import static androidx.core.content.ContextCompat.getSystemService;
+//import org.json.simple.*;
 
 
 public class WeatherByGPSApplication {
