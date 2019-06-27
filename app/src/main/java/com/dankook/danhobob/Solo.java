@@ -20,12 +20,14 @@ public class Solo extends AppCompatActivity {
     }
 
     public void onRecommend(View v) {
-        R.id.s1
+
         Intent i = new Intent(this,Recommend.class);
         startActivity(i);
         finish();
     }
+    public void onSearch(View v){
 
+    }
     public void onCheck(View v){
         btnFood = (Button)v;
         if(btnFood.getBackground().equals("#ffffff")){
