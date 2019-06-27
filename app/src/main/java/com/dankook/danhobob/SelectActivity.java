@@ -38,7 +38,7 @@ public class SelectActivity extends AppCompatActivity implements View.OnClickLis
                 startActivity(i);
                 break;
             case R.id.bt_friend:
-                i = new Intent(this, SoloActivity.class);
+                i = new Intent(this, FriendActivity.class);
                 i.putExtra("rating", fl);
                 startActivity(i);
         }

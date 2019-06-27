@@ -1,9 +1,8 @@
 package com.dankook.danhobob;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -59,6 +58,7 @@ public class RatingActivity extends AppCompatActivity {
         );
 
         submitButton.setLayoutParams(submitParams);
+        submitButton.setBackgroundColor(Color.parseColor("#36542A"));
         submitButton.setTextSize(32);
         submitButton.setText("확인!");
         submitButton.setTypeface(type);
@@ -84,7 +84,10 @@ public class RatingActivity extends AppCompatActivity {
             foodTxts[i].setTextSize(20);
             foodTxts[i].setText(foodNames[i]);
             foodTxts[i].setTypeface(type);
+
+            ratingBars[i].setStepSize(1.0f);
         }
+
 
         foodImgs[0].setImageResource(R.drawable.food1);
         foodImgs[1].setImageResource(R.drawable.food2);
@@ -99,9 +102,6 @@ public class RatingActivity extends AppCompatActivity {
         int i;
 
         for (i = 0; i < VIEW_NUM; i++) {
-
-            foodImgs[i].setBackground(new ShapeDrawable(new OvalShape()));
-            foodImgs[i].setClipToOutline(true);
 
             relativeLayouts[i].addView(foodImgs[i]);
             relativeLayouts[i].addView(foodTxts[i]);
