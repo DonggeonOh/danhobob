@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package com.dankook.danhobob;
 
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
@@ -14,9 +14,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.Settings;
-//import android.support.v4.*;
+import android.support.v4.content.ContextCompat;
 
-import androidx.core.content.ContextCompat;
+//import android.support.v4.*;
 
 public class GpsInfo extends Service implements LocationListener {
 

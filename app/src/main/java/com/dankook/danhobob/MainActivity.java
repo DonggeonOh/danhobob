@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        startActivity(new Intent(this, SplashActivity.class));
+        startActivity(new Intent(this,SplashActivity.class));
 
         noneLoginBtn = findViewById(R.id.bt_none_login);
         noneLoginBtn.setOnClickListener(this);
