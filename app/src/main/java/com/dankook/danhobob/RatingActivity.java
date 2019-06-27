@@ -1,6 +1,8 @@
 package com.dankook.danhobob;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -32,6 +34,8 @@ public class RatingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rating);
 
+        Typeface type = Typeface.createFromAsset(this.getAssets(), "jalnan.ttf");
+
         submitButton = new Button(this);
 
         linearLayout = findViewById(R.id.layout_linear);
@@ -54,17 +58,13 @@ public class RatingActivity extends AppCompatActivity {
         );
 
         submitButton.setLayoutParams(submitParams);
+        submitButton.setBackgroundColor(Color.parseColor("#36542A"));
         submitButton.setTextSize(32);
         submitButton.setText("확인!");
-        submitButton.setOnClickListener(new View.OnClickListener() {
+        submitButton.setTypeface(type);
 
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), Home.class);
-                startActivity(intent);
-            }
-        });
         textParams.setMargins(270, 0, 0, 0);
+        ratingParams.setMargins(64, 64, 64, 64);
 
         for (int i = 0; i < VIEW_NUM; i++) {
             relativeLayouts[i] = new RelativeLayout(this);
@@ -83,8 +83,11 @@ public class RatingActivity extends AppCompatActivity {
 
             foodTxts[i].setTextSize(20);
             foodTxts[i].setText(foodNames[i]);
+            foodTxts[i].setTypeface(type);
+
             ratingBars[i].setStepSize(1.0f);
         }
+
 
         foodImgs[0].setImageResource(R.drawable.food1);
         foodImgs[1].setImageResource(R.drawable.food2);
@@ -99,6 +102,7 @@ public class RatingActivity extends AppCompatActivity {
         int i;
 
         for (i = 0; i < VIEW_NUM; i++) {
+
             relativeLayouts[i].addView(foodImgs[i]);
             relativeLayouts[i].addView(foodTxts[i]);
             relativeLayouts[i].addView(ratingBars[i]);
@@ -108,6 +112,26 @@ public class RatingActivity extends AppCompatActivity {
 
         relativeLayouts[i] = new RelativeLayout(this);
         relativeLayouts[i].addView(submitButton);
+
         linearLayout.addView(relativeLayouts[i]);
+
+        submitButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                float[] numStar = new float[VIEW_NUM];
+
+                for(int i = 0; i < VIEW_NUM; i++) {
+                    numStar[i] = ratingBars[i].getRating();
+                    Database.UpdatePreference(i,(int)numStar[i]);
+                }
+
+                Intent intent = new Intent(v.getContext(), SelectActivity.class);
+                intent.putExtra("rating", numStar);
+
+                startActivity(intent);
+            }
+
+        });
     }
 }

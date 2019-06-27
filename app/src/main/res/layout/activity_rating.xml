@@ -2,16 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#F5A106">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:layout_marginBottom="16dp"
-        android:text="무엇을 좋아하시나요?"
-        android:textSize="32dp" />
+        android:fontFamily="@font/jalnan"
+        android:text="좋아하는 음식을 골라보아요!"
+        android:textColor="#ffffff"
+        android:textSize="30dp" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -23,6 +26,5 @@
             android:layout_height="match_parent"
             android:orientation="vertical"></LinearLayout>
     </ScrollView>
-
 
 </LinearLayout>
