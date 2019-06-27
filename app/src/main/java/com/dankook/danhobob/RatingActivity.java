@@ -1,7 +1,11 @@
 package com.dankook.danhobob;
 
+import android.content.Intent;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -56,6 +60,7 @@ public class RatingActivity extends AppCompatActivity {
         submitButton.setText("확인!");
 
         textParams.setMargins(270, 0, 0, 0);
+        ratingParams.setMargins(64, 64, 64, 64);
 
         for (int i = 0; i < VIEW_NUM; i++) {
             relativeLayouts[i] = new RelativeLayout(this);
@@ -74,6 +79,7 @@ public class RatingActivity extends AppCompatActivity {
 
             foodTxts[i].setTextSize(20);
             foodTxts[i].setText(foodNames[i]);
+
             ratingBars[i].setStepSize(1.0f);
         }
 
@@ -90,6 +96,10 @@ public class RatingActivity extends AppCompatActivity {
         int i;
 
         for (i = 0; i < VIEW_NUM; i++) {
+
+            foodImgs[i].setBackground(new ShapeDrawable(new OvalShape()));
+            foodImgs[i].setClipToOutline(true);
+
             relativeLayouts[i].addView(foodImgs[i]);
             relativeLayouts[i].addView(foodTxts[i]);
             relativeLayouts[i].addView(ratingBars[i]);
@@ -100,5 +110,22 @@ public class RatingActivity extends AppCompatActivity {
         relativeLayouts[i] = new RelativeLayout(this);
         relativeLayouts[i].addView(submitButton);
         linearLayout.addView(relativeLayouts[i]);
+
+        submitButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                float[] numStar = new float[VIEW_NUM];
+
+                for(int i = 0; i < VIEW_NUM; i++) {
+                    numStar[i] = ratingBars[i].getRating();
+                }
+
+                Intent intent = new Intent(v.getContext(), SelectActivity.class);
+                intent.putExtra("rating", numStar);
+                startActivity(intent);
+            }
+
+        });
     }
 }
