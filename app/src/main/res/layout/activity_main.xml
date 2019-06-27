@@ -21,6 +21,17 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/bt_kakao_login"
+            android:layout_width="256dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/kakao_login"
+            android:text="카카오 로그인"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+        <Button
             android:id="@+id/bt_naver_login"
             android:layout_width="256dp"
             android:layout_height="40dp"
@@ -31,21 +42,11 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/bt_kakao_login"
-            android:layout_width="256dp"
-            android:layout_height="40dp"
-            android:layout_marginBottom="12dp"
-            android:background="@drawable/kakao_login"
-            android:text="카카오 로그인"
-            android:textSize="17dp"
-            android:textStyle="bold" />
-
-        <Button
             android:id="@+id/bt_none_login"
             android:layout_width="256dp"
             android:layout_height="40dp"
             android:background="@drawable/none_login"
-            android:text="비회원 로그인"
+            android:text="비회원"
             android:textSize="17dp"
             android:textStyle="bold"
             android:textColor="@android:color/primary_text_dark"/>
