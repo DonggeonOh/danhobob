@@ -11,13 +11,13 @@ package com.dankook.danhobob;
         import android.view.inputmethod.InputMethodSession;
         import android.widget.Button;
         import android.widget.TextView;
-
+        import io.realm.Realm;
+        import io.realm.RealmConfiguration;
         import com.kakao.auth.AuthType;
         import com.kakao.auth.ISessionCallback;
         import com.kakao.auth.Session;
         import com.kakao.util.exception.KakaoException;
         import com.kakao.util.helper.log.Logger;
-
         import java.security.MessageDigest;
         import java.security.NoSuchAlgorithmException;
 
@@ -53,9 +53,18 @@ public class MainActivity<val> extends AppCompatActivity implements View.OnClick
         });
 
         startActivity(new Intent(this, SplashActivity.class));
+//      startActivity(new Intent(this, com.dankook.danhobob.SplashActivity.class));
 
         noneLoginBtn = findViewById(R.id.bt_none_login);
         noneLoginBtn.setOnClickListener(this);
+
+        Realm.init(this);
+        RealmConfiguration configuration = new RealmConfiguration.Builder()
+                .schemaVersion(0)
+                .modules(new MyRealmModule())
+                .build();
+        Realm.setDefaultConfiguration(configuration);
+        ImportData.Import();
     }
 
     private void onClickKakaoLogin() {

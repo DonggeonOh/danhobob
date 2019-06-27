@@ -63,6 +63,12 @@ public class RatingActivity extends AppCompatActivity {
         submitButton.setText("확인!");
         submitButton.setTypeface(type);
 
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), Home.class);
+                startActivity(intent);
+            }
+        });
         textParams.setMargins(270, 0, 0, 0);
         ratingParams.setMargins(64, 64, 64, 64);
 
@@ -123,6 +129,7 @@ public class RatingActivity extends AppCompatActivity {
 
                 for(int i = 0; i < VIEW_NUM; i++) {
                     numStar[i] = ratingBars[i].getRating();
+                    Database.UpdatePreference(i,(int)numStar[i]);
                 }
 
                 Intent intent = new Intent(v.getContext(), SelectActivity.class);
