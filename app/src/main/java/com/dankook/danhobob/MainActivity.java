@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import io.realm.Realm;
+import io.realm.RealmConfiguration;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -22,7 +23,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         noneLoginBtn.setOnClickListener(this);
 
         Realm.init(this);
-
+        RealmConfiguration configuration = new RealmConfiguration.Builder()
+                .schemaVersion(0)
+                .modules(new MyRealmModule())
+                .migration(new Migration())
+                .build();
+        Realm.setDefaultConfiguration(configuration);
+        ImportData.Import();
     }
 
     @Override
