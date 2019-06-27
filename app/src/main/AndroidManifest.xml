@@ -8,7 +8,9 @@
         android:label="단호밥"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/Theme.AppCompat.NoActionBar"
+        android:hardwareAccelerated="false"
+        android:largeHeap="true">
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -18,11 +20,13 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".RatingActivity" />
-
         <activity
             android:name=".SplashActivity"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+
+        <activity
+            android:name=".RatingActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
 
     </application>
 
