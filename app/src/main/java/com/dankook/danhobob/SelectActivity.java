@@ -16,32 +16,27 @@ public class SelectActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select);
 
-        soloBtn = findViewById(R.id.bt_solo);
-        friendBtn = findViewById(R.id.bt_friend);
-        
-
         Intent intent = getIntent();
         float[] fl = intent.getExtras().getFloatArray("rating");
-    }
 
-    public void onSolo() {
-        Intent i = new Intent(this, SoloActivity.class);
-        startActivity(i);
-    }
+        soloBtn = findViewById(R.id.bt_solo);
+        friendBtn = findViewById(R.id.bt_friend);
 
-    public void onFriends(){
-        Intent i = new Intent(this, SoloActivity.class);
-        startActivity(i);
+        soloBtn.setOnClickListener(this);
+        friendBtn.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
+        Intent i;
         switch (v.getId()) {
             case R.id.bt_solo:
-                onSolo();
+                i = new Intent(this, SoloActivity.class);
+                startActivity(i);
                 break;
             case R.id.bt_friend:
-                onFriends();
+                i = new Intent(this, SoloActivity.class);
+                startActivity(i);
         }
     }
 }

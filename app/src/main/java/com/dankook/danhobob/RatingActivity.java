@@ -1,6 +1,7 @@
 package com.dankook.danhobob;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
@@ -34,6 +35,8 @@ public class RatingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rating);
 
+        Typeface type = Typeface.createFromAsset(this.getAssets(), "jalnan.ttf");
+
         submitButton = new Button(this);
 
         linearLayout = findViewById(R.id.layout_linear);
@@ -58,6 +61,7 @@ public class RatingActivity extends AppCompatActivity {
         submitButton.setLayoutParams(submitParams);
         submitButton.setTextSize(32);
         submitButton.setText("확인!");
+        submitButton.setTypeface(type);
 
         textParams.setMargins(270, 0, 0, 0);
         ratingParams.setMargins(64, 64, 64, 64);
@@ -79,8 +83,7 @@ public class RatingActivity extends AppCompatActivity {
 
             foodTxts[i].setTextSize(20);
             foodTxts[i].setText(foodNames[i]);
-
-            ratingBars[i].setStepSize(1.0f);
+            foodTxts[i].setTypeface(type);
         }
 
         foodImgs[0].setImageResource(R.drawable.food1);
@@ -109,6 +112,7 @@ public class RatingActivity extends AppCompatActivity {
 
         relativeLayouts[i] = new RelativeLayout(this);
         relativeLayouts[i].addView(submitButton);
+
         linearLayout.addView(relativeLayouts[i]);
 
         submitButton.setOnClickListener(new View.OnClickListener() {
