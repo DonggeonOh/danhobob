@@ -2,14 +2,25 @@ package com.dankook.danhobob;
 import io.realm.*;
 
 public class Food extends RealmObject{
+    private int id;
     private String name;
-    private String category;    //음식 종류
-    private String testure;     //식감
-    private String flavor;      //맛
-    private boolean weather;    //날씨
-    private String time;        //시간
-    private String temperature; //기온
+    private int preference;         //선호도
+    private String category;        //음식 종류
+    private String texture;         //식감
+    private String flavor;          //맛
+    private int weather;        //날씨
+    private int time;           //시간 0: 9시 이후 추천 금
+    private String temperature;     //기온 적당, 추움, 더움 >> 추움일 때 추천, 더움일 때 추천
+    private String allergic;        //알레르기 계란, 생선, 밀가루, 땅콩, 게, null
+    private String ingredient;      //재료 해산물, 고기, 야채, 쌀, 닭, null
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -17,6 +28,14 @@ public class Food extends RealmObject{
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getPreference() {
+        return preference;
+    }
+
+    public void setPreference(int preference) {
+        this.preference = preference;
     }
 
     public String getCategory() {
@@ -27,12 +46,12 @@ public class Food extends RealmObject{
         this.category = category;
     }
 
-    public String getTesture() {
-        return testure;
+    public String getTexture() {
+        return texture;
     }
 
-    public void setTesture(String testure) {
-        this.testure = testure;
+    public void setTexture(String texture) {
+        this.texture = texture;
     }
 
     public String getFlavor() {
@@ -43,19 +62,19 @@ public class Food extends RealmObject{
         this.flavor = flavor;
     }
 
-    public boolean isWeather() {
+    public int getWeather() {
         return weather;
     }
 
-    public void setWeather(boolean weather) {
+    public void setWeather(int weather) {
         this.weather = weather;
     }
 
-    public String getTime() {
+    public int getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(int time) {
         this.time = time;
     }
 
@@ -65,6 +84,22 @@ public class Food extends RealmObject{
 
     public void setTemperature(String temperature) {
         this.temperature = temperature;
+    }
+
+    public String getAllergic() {
+        return allergic;
+    }
+
+    public void setAllergic(String allergic) {
+        this.allergic = allergic;
+    }
+
+    public String getIngredient() {
+        return ingredient;
+    }
+
+    public void setIngredient(String ingredient) {
+        this.ingredient = ingredient;
     }
 } //food class
 
