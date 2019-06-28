@@ -1,9 +1,8 @@
 package com.dankook.danhobob;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -17,6 +16,7 @@ import android.widget.TextView;
 
 public class RatingActivity extends AppCompatActivity {
 
+
     private static final int VIEW_NUM = 9;
 
     private RelativeLayout[] relativeLayouts = new RelativeLayout[VIEW_NUM + 1];
@@ -28,7 +28,7 @@ public class RatingActivity extends AppCompatActivity {
 
     private Button submitButton;
 
-    private String[] foodNames = {"떡볶이", "햄버거", "피자", "막국수", "냉모밀", "국밥", "찜닭", "짜장면", "짬뽕"};
+    private String[] foodNames = {"떡볶이", "햄버거", "간장게장", "막국수", "샤브샤브", "초밥", "찜닭", "짜장면", "샐러드"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,16 +59,11 @@ public class RatingActivity extends AppCompatActivity {
         );
 
         submitButton.setLayoutParams(submitParams);
+        submitButton.setBackgroundColor(Color.parseColor("#36542A"));
         submitButton.setTextSize(32);
         submitButton.setText("확인!");
         submitButton.setTypeface(type);
 
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), Home.class);
-                startActivity(intent);
-            }
-        });
         textParams.setMargins(270, 0, 0, 0);
         ratingParams.setMargins(64, 64, 64, 64);
 
@@ -90,7 +85,10 @@ public class RatingActivity extends AppCompatActivity {
             foodTxts[i].setTextSize(20);
             foodTxts[i].setText(foodNames[i]);
             foodTxts[i].setTypeface(type);
+
+            ratingBars[i].setStepSize(1.0f);
         }
+
 
         foodImgs[0].setImageResource(R.drawable.food1);
         foodImgs[1].setImageResource(R.drawable.food2);
@@ -105,9 +103,6 @@ public class RatingActivity extends AppCompatActivity {
         int i;
 
         for (i = 0; i < VIEW_NUM; i++) {
-
-            foodImgs[i].setBackground(new ShapeDrawable(new OvalShape()));
-            foodImgs[i].setClipToOutline(true);
 
             relativeLayouts[i].addView(foodImgs[i]);
             relativeLayouts[i].addView(foodTxts[i]);
@@ -127,13 +122,14 @@ public class RatingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 float[] numStar = new float[VIEW_NUM];
 
-                for(int i = 0; i < VIEW_NUM; i++) {
+                for (int i = 0; i < VIEW_NUM; i++) {
                     numStar[i] = ratingBars[i].getRating();
-                    Database.UpdatePreference(i,(int)numStar[i]);
+                    Database.UpdatePreference(i, (int) numStar[i]);
                 }
 
                 Intent intent = new Intent(v.getContext(), SelectActivity.class);
                 intent.putExtra("rating", numStar);
+
                 startActivity(intent);
             }
 
