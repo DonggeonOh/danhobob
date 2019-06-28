@@ -88,7 +88,6 @@ public class RatingActivity extends AppCompatActivity {
             ratingBars[i].setStepSize(1.0f);
         }
 
-
         foodImgs[0].setImageResource(R.drawable.food1);
         foodImgs[1].setImageResource(R.drawable.food2);
         foodImgs[2].setImageResource(R.drawable.food3);
@@ -126,9 +125,10 @@ public class RatingActivity extends AppCompatActivity {
                     Database.UpdatePreference(i,(int)numStar[i]);
                 }
 
-                Intent intent = new Intent(v.getContext(), SelectActivity.class);
+                Intent intent = new Intent(v.getContext(), SoloActivity.class);
                 intent.putExtra("rating", numStar);
 
+                finish();
                 startActivity(intent);
             }
 
