@@ -27,7 +27,7 @@ public class RatingActivity extends AppCompatActivity {
 
     private Button submitButton;
 
-    private String[] foodNames = {"떡볶이", "햄버거", "피자", "막국수", "냉모밀", "국밥", "찜닭", "짜장면", "짬뽕"};
+    private String[] foodNames = {"떡볶이", "햄버거", "간장게장", "막국수", "샤브샤브", "초밥", "찜닭", "짜장면", "샐러드", "", "", ""};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
