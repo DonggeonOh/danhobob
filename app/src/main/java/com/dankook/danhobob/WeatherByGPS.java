@@ -1,18 +1,15 @@
 package com.dankook.danhobob;
 
 import android.util.Log;
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 
 
 public class WeatherByGPS {
-
     static double temp;
     static String weather;
     static String location;
@@ -83,7 +80,6 @@ public class WeatherByGPS {
             e.printStackTrace();
         }
     }
-
 
     public static double getTemp() {
 

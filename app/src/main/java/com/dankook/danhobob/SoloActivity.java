@@ -26,4 +26,6 @@ public class SoloActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }
