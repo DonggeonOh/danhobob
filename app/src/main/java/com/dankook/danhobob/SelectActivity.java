@@ -6,6 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+
+//개인용 친구 공유용?
+
 public class SelectActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button soloBtn;

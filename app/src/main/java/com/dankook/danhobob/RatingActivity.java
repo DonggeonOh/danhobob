@@ -14,6 +14,8 @@ import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+//tutorial 점수 매기기
+
 public class RatingActivity extends AppCompatActivity {
 
     private static final int VIEW_NUM = 9;
