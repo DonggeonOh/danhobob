@@ -2,12 +2,16 @@ package com.dankook.danhobob;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Random;
 
 public class SoloPickActivity extends AppCompatActivity {
+
+    Button backBtn;
 
     ImageView imageViews;
     TextView foodNames;
@@ -18,12 +22,20 @@ public class SoloPickActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_solo_pick);
 
+        backBtn = findViewById(R.id.bt_back);
         imageViews = findViewById(R.id.img_food);
         foodNames = findViewById(R.id.tv_food);
         foodExplain = findViewById(R.id.tv_expain_food);
 
         Random random = new Random();
         int num = random.nextInt(6);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    onBackPressed();
+            }
+        });
 
         switch (num) {
             case 0:
