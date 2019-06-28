@@ -21,8 +21,8 @@ public class SelectActivity extends AppCompatActivity /*implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select);
 
-        Intent intent = getIntent();
-        fl = intent.getExtras().getFloatArray("rating");
+//      Intent intent = getIntent();
+//      fl = intent.getExtras().getFloatArray("rating");
 
         soloBtn = findViewById(R.id.bt_solo);
         friendBtn = findViewById(R.id.bt_friend);

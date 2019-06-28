@@ -103,7 +103,6 @@ public class Database<let> {
 //        Log.d("새 값", "" + food.getPreference());
     }
 
-
     public void deleteHates(String target) {
         mRealm = Realm.getDefaultInstance();
         mRealm.beginTransaction();
