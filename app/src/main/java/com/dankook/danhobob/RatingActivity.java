@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 public class RatingActivity extends AppCompatActivity {
 
-    private static final int VIEW_NUM = 9;
+    private static final int VIEW_NUM = 10;
 
     private RelativeLayout[] relativeLayouts = new RelativeLayout[VIEW_NUM + 1];
     private LinearLayout linearLayout;
@@ -27,7 +27,7 @@ public class RatingActivity extends AppCompatActivity {
 
     private Button submitButton;
 
-    private String[] foodNames = {"떡볶이", "햄버거", "간장게장", "막국수", "샤브샤브", "초밥", "찜닭", "짜장면", "샐러드", "", "", ""};
+    private String[] foodNames = {"떡볶이", "햄버거", "간장게장", "막국수", "샤브샤브", "초밥", "찜닭", "짜장면", "샐러드", "마라탕"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +96,9 @@ public class RatingActivity extends AppCompatActivity {
         foodImgs[5].setImageResource(R.drawable.food6);
         foodImgs[6].setImageResource(R.drawable.food7);
         foodImgs[7].setImageResource(R.drawable.food8);
+        foodImgs[7].setImageResource(R.drawable.food8);
         foodImgs[8].setImageResource(R.drawable.food9);
+        foodImgs[9].setImageResource(R.drawable.food10);
 
         int i;
 
@@ -120,9 +122,9 @@ public class RatingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 float[] numStar = new float[VIEW_NUM];
 
-                for(int i = 0; i < VIEW_NUM; i++) {
+                for (int i = 0; i < VIEW_NUM; i++) {
                     numStar[i] = ratingBars[i].getRating();
-                    Database.UpdatePreference(i,(int)numStar[i]);
+                    Database.UpdatePreference(i, (int) numStar[i]);
                 }
 
                 Intent intent = new Intent(v.getContext(), SoloActivity.class);

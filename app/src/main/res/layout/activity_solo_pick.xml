@@ -27,17 +27,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/foodgood" />
+            android:layout_marginTop="16dp" />
 
         <TextView
+            android:id="@+id/tv_food"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/jalnan"
-            android:text="마라탕"
             android:textColor="#f5a106"
             android:textSize="24dp" />
 
@@ -46,12 +45,12 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:id="@+id/tv_expain_food"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
-                android:text="오늘은 날씨가 추우니까 따뜻한 면인 마라탕을 먹는 것을 추천한단호밥! \n\n 맛있는 마라탕 먹고 힘내랏!"
                 android:textColor="#726D6D"
                 android:textSize="21dp"
                 android:textStyle="bold" />
