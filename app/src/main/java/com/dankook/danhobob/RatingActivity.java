@@ -3,8 +3,10 @@ package com.dankook.danhobob;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -19,6 +21,8 @@ public class RatingActivity extends AppCompatActivity {
     private static final int VIEW_NUM = 10;
 
     private RelativeLayout[] relativeLayouts = new RelativeLayout[VIEW_NUM + 1];
+    private LinearLayout[] contentLinearLayout= new LinearLayout[VIEW_NUM + 1];
+
     private LinearLayout linearLayout;
 
     private ImageView[] foodImgs = new ImageView[VIEW_NUM];
@@ -37,13 +41,12 @@ public class RatingActivity extends AppCompatActivity {
         Typeface type = Typeface.createFromAsset(this.getAssets(), "jalnan.ttf");
 
         submitButton = new Button(this);
-
         linearLayout = findViewById(R.id.layout_linear);
 
         RelativeLayout.LayoutParams imageParams = new RelativeLayout.LayoutParams(256, 256);
 
         RelativeLayout.LayoutParams textParams = new RelativeLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
         );
 
@@ -57,17 +60,22 @@ public class RatingActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams.WRAP_CONTENT
         );
 
+        LinearLayout.LayoutParams linearLayoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT
+        );
+
         submitButton.setLayoutParams(submitParams);
         submitButton.setBackgroundColor(Color.parseColor("#36542A"));
         submitButton.setTextSize(32);
         submitButton.setText("확인!");
         submitButton.setTypeface(type);
 
-        textParams.setMargins(270, 0, 0, 0);
-        ratingParams.setMargins(64, 64, 64, 64);
+        textParams.setMargins(0, 0, 64, 0);
 
         for (int i = 0; i < VIEW_NUM; i++) {
             relativeLayouts[i] = new RelativeLayout(this);
+            contentLinearLayout[i] = new LinearLayout(this);
 
             foodImgs[i] = new ImageView(this);
             foodTxts[i] = new TextView(this);
@@ -76,6 +84,10 @@ public class RatingActivity extends AppCompatActivity {
             foodImgs[i].setLayoutParams(imageParams);
             foodTxts[i].setLayoutParams(textParams);
             ratingBars[i].setLayoutParams(ratingParams);
+
+            contentLinearLayout[i].setLayoutParams(linearLayoutParams);
+            contentLinearLayout[i].setGravity(Gravity.RIGHT);
+            contentLinearLayout[i].setOrientation(LinearLayout.VERTICAL);
 
             imageParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
             textParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
@@ -91,7 +103,7 @@ public class RatingActivity extends AppCompatActivity {
         foodImgs[0].setImageResource(R.drawable.food1);
         foodImgs[1].setImageResource(R.drawable.food2);
         foodImgs[2].setImageResource(R.drawable.food3);
-        foodImgs[3].setImageResource(R.drawable.food4);
+        foodImgs[3].setImageResource(R.drawable.fodod4);
         foodImgs[4].setImageResource(R.drawable.food5);
         foodImgs[5].setImageResource(R.drawable.food6);
         foodImgs[6].setImageResource(R.drawable.food7);
@@ -105,8 +117,9 @@ public class RatingActivity extends AppCompatActivity {
         for (i = 0; i < VIEW_NUM; i++) {
 
             relativeLayouts[i].addView(foodImgs[i]);
-            relativeLayouts[i].addView(foodTxts[i]);
-            relativeLayouts[i].addView(ratingBars[i]);
+            contentLinearLayout[i].addView(foodTxts[i]);
+            contentLinearLayout[i].addView(ratingBars[i]);
+            relativeLayouts[i].addView(contentLinearLayout[i]);
 
             linearLayout.addView(relativeLayouts[i]);
         }

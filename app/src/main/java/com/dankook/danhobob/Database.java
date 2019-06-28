@@ -30,9 +30,9 @@ public class Database<let> {
                 .equalTo("id", key)
                 .findFirst();
 
-        Log.d("키", ""+key);
-        Log.d("newval", ""+newValue);
-        Log.d("food", ""+food);
+//        Log.d("키", ""+key);
+//        Log.d("newval", ""+newValue);
+//        Log.d("food", ""+food);
         if (food == null) {
             Log.d("null", "");
         }
@@ -42,7 +42,7 @@ public class Database<let> {
 
         food.getPreference();
 
-        Log.d("새 값", ""+food.getPreference());
+        //Log.d("새 값", ""+food.getPreference());
     }
 
 //    public static void main(String[] args) {
