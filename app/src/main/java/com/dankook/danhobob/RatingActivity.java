@@ -141,7 +141,7 @@ public class RatingActivity extends AppCompatActivity {
                     Database.UpdatePreference(i, (int) numStar[i]);
                 }
 
-                Intent intent = new Intent(v.getContext(), SoloActivity.class);
+                Intent intent = new Intent(v.getContext(), SelectActivity.class);
                 intent.putExtra("rating", numStar);
 
                 finish();
