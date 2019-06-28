@@ -9,7 +9,7 @@ import android.widget.Button;
 
 //개인용 친구 공유용?
 
-public class SelectActivity extends AppCompatActivity implements View.OnClickListener {
+public class SelectActivity extends AppCompatActivity /*implements View.OnClickListener*/ {
 
     private Button soloBtn;
     private Button friendBtn;
@@ -27,16 +27,26 @@ public class SelectActivity extends AppCompatActivity implements View.OnClickLis
         soloBtn = findViewById(R.id.bt_solo);
         friendBtn = findViewById(R.id.bt_friend);
 
-        soloBtn.setOnClickListener(this);
-        friendBtn.setOnClickListener(this);
-    }
+        soloBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(
+                        getApplicationContext(), SoloPickActivity.class
+                );
+                startActivity(intent);
+            }
+        });
 
-    @Override
+        //friendBtn.setOnClickListener(this);
+    }
+}
+
+/*    @Override
     public void onClick(View v) {
         Intent i;
         switch (v.getId()) {
             case R.id.bt_solo:
-                i = new Intent(this, SoloActivity.class);
+                i = new Intent(this, SoloPickActivity.class);
                 i.putExtra("rating", fl);
                 startActivity(i);
                 break;
@@ -47,3 +57,4 @@ public class SelectActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 }
+*/
